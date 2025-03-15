@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import sys
+from math import radians, cos, sin, asin, sqrt
 
 # Define European countries
 european_countries = {
@@ -21,14 +22,61 @@ european_city_names = {
     'KROKVIK', 'VITTANGI'
 }
 
-# Alternative approach: define Europe by bounding box
-# This is a rough approximation of Europe's boundaries
-def is_in_europe_bbox(lon, lat):
-    # Make sure we're dealing with numbers
+# Define Europe's borders as a polygon (longitude, latitude pairs)
+# This is a simplified polygon of Europe's borders
+europe_polygon = [
+    # Western Europe (Atlantic)
+    (-10.0, 35.0),  # Southwest corner
+    (-10.0, 60.0),  # Northwest corner
+    # Northern Europe
+    (-5.0, 65.0),   # Iceland area
+    (0.0, 70.0),    # Northern Norway
+    (30.0, 72.0),   # Northern Russia
+    # Eastern Europe
+    (40.0, 65.0),   # Eastern Russia
+    (40.0, 45.0),   # Black Sea area
+    # Southern Europe
+    (35.0, 35.0),   # Turkey/Cyprus
+    (25.0, 35.0),   # Mediterranean
+    (10.0, 35.0),   # North Africa coast
+    (-10.0, 35.0)   # Back to start
+]
+
+def point_in_polygon(point, polygon):
+    """
+    Determine if a point is inside a polygon using the ray casting algorithm.
+    
+    Args:
+        point: A tuple of (longitude, latitude)
+        polygon: A list of (longitude, latitude) tuples forming a polygon
+        
+    Returns:
+        bool: True if the point is inside the polygon, False otherwise
+    """
+    x, y = point
+    n = len(polygon)
+    inside = False
+    
+    p1x, p1y = polygon[0]
+    for i in range(1, n + 1):
+        p2x, p2y = polygon[i % n]
+        if y > min(p1y, p2y):
+            if y <= max(p1y, p2y):
+                if x <= max(p1x, p2x):
+                    if p1y != p2y:
+                        xinters = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
+                    if p1x == p2x or x <= xinters:
+                        inside = not inside
+        p1x, p1y = p2x, p2y
+    
+    return inside
+
+def is_in_europe(lon, lat):
+    """Check if a point is in Europe using the polygon."""
     try:
         lon_val = float(lon)
         lat_val = float(lat)
-        return -25 <= lon_val <= 40 and 34 <= lat_val <= 72
+        return point_in_polygon((lon_val, lat_val), europe_polygon)
     except (TypeError, ValueError):
         return False
 
@@ -82,7 +130,7 @@ def main():
                         
                         # Check if the centroid is in Europe
                         if centroid_lon is not None and centroid_lat is not None:
-                            if is_in_europe_bbox(centroid_lon, centroid_lat):
+                            if is_in_europe(centroid_lon, centroid_lat):
                                 european_features.append(feature)
             except Exception as e:
                 print(f"Error processing feature {i}: {e}")

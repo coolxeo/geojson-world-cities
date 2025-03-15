@@ -22,7 +22,29 @@ python filter_european_cities.py
 
 The script uses two methods to identify European cities:
 
-1. By country name - if the GeoJSON has a 'country' property, it checks if the country is in the list of European countries.
-2. By geographic coordinates - it uses a bounding box to determine if a city's coordinates fall within Europe.
+1. By city name - if the city name is in a predefined list of known European cities, it's included.
+2. By geographic coordinates - it uses a polygon that approximates Europe's borders to determine if a city's centroid falls within Europe.
 
-The bounding box used is a rough approximation of Europe's boundaries: longitude between -25° and 40°, and latitude between 34° and 72°. 
+The polygon-based approach is more accurate than a simple bounding box, as it follows the general shape of Europe's borders, including the Mediterranean coastline, the Atlantic coast, and the borders with Asia.
+
+## Polygon Definition
+
+The Europe polygon is defined by the following points (longitude, latitude):
+
+```
+[
+    (-10.0, 35.0),  # Southwest corner (Atlantic)
+    (-10.0, 60.0),  # Northwest corner
+    (-5.0, 65.0),   # Iceland area
+    (0.0, 70.0),    # Northern Norway
+    (30.0, 72.0),   # Northern Russia
+    (40.0, 65.0),   # Eastern Russia
+    (40.0, 45.0),   # Black Sea area
+    (35.0, 35.0),   # Turkey/Cyprus
+    (25.0, 35.0),   # Mediterranean
+    (10.0, 35.0),   # North Africa coast
+    (-10.0, 35.0)   # Back to start
+]
+```
+
+This polygon is a simplified representation of Europe's borders and may not be perfectly accurate for all edge cases. 
