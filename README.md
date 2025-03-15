@@ -25,23 +25,13 @@ The script uses two methods to identify European cities:
 1. By city name - if the city name is in a predefined list of known European cities, it's included.
 2. By geographic coordinates - it uses a polygon that approximates Europe's borders to determine if a city's coordinates fall within Europe.
 
-### City Boundary Simplification
+For simplicity, the script processes city data as follows:
+- For Point geometries: Uses the exact coordinates (city center)
+- For Polygon geometries: Uses the first coordinate as a simple approximation
 
-The script simplifies city boundaries using the following approach:
+This simplified approach focuses on the city center rather than calculating centroids of complex polygons, making the script more efficient.
 
-1. For point geometries:
-   - Creates a small square (4 points) around the point to represent the city
-
-2. For polygon geometries:
-   - Calculates the city center
-   - Determines the average distance from center to edges to estimate city size
-   - Creates a simplified regular polygon with 4-6 points based on city size:
-     - Small cities: 4 points (square)
-     - Larger cities: 6 points (hexagon)
-
-This simplification significantly reduces the file size while maintaining a reasonable approximation of city boundaries.
-
-## Europe Polygon Definition
+## Polygon Definition
 
 The Europe polygon is defined by the following points (longitude, latitude):
 
