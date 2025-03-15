@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import json
 import sys
-from math import radians, cos, sin, asin, sqrt
 
 # Define European countries
 european_countries = {
@@ -80,24 +79,6 @@ def is_in_europe(lon, lat):
     except (TypeError, ValueError):
         return False
 
-def calculate_centroid(coordinates):
-    """Calculate the centroid of a polygon."""
-    if not coordinates or not coordinates[0]:
-        return None, None
-    
-    # For simplicity, we'll use the first ring of coordinates
-    ring = coordinates[0]
-    
-    # Calculate centroid
-    sum_x = sum(point[0] for point in ring)
-    sum_y = sum(point[1] for point in ring)
-    
-    count = len(ring)
-    if count == 0:
-        return None, None
-    
-    return sum_x / count, sum_y / count
-
 def main():
     print("Loading cities.geojson file...")
     try:
@@ -124,14 +105,18 @@ def main():
                     geom_type = feature['geometry'].get('type', '').lower()
                     coords = feature['geometry'].get('coordinates', [])
                     
-                    if geom_type == 'polygon' and coords:
-                        # Calculate the centroid of the polygon
-                        centroid_lon, centroid_lat = calculate_centroid(coords)
-                        
-                        # Check if the centroid is in Europe
-                        if centroid_lon is not None and centroid_lat is not None:
-                            if is_in_europe(centroid_lon, centroid_lat):
-                                european_features.append(feature)
+                    # For Point geometries (city centers)
+                    if geom_type == 'point' and coords and len(coords) == 2:
+                        lon, lat = coords
+                        if is_in_europe(lon, lat):
+                            european_features.append(feature)
+                    
+                    # For Polygon geometries, just use the first coordinate as an approximation
+                    elif geom_type == 'polygon' and coords and coords[0]:
+                        # Just take the first point as a simple approximation
+                        lon, lat = coords[0][0]
+                        if is_in_europe(lon, lat):
+                            european_features.append(feature)
             except Exception as e:
                 print(f"Error processing feature {i}: {e}")
                 continue

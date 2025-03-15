@@ -23,9 +23,13 @@ python filter_european_cities.py
 The script uses two methods to identify European cities:
 
 1. By city name - if the city name is in a predefined list of known European cities, it's included.
-2. By geographic coordinates - it uses a polygon that approximates Europe's borders to determine if a city's centroid falls within Europe.
+2. By geographic coordinates - it uses a polygon that approximates Europe's borders to determine if a city's coordinates fall within Europe.
 
-The polygon-based approach is more accurate than a simple bounding box, as it follows the general shape of Europe's borders, including the Mediterranean coastline, the Atlantic coast, and the borders with Asia.
+For simplicity, the script processes city data as follows:
+- For Point geometries: Uses the exact coordinates (city center)
+- For Polygon geometries: Uses the first coordinate as a simple approximation
+
+This simplified approach focuses on the city center rather than calculating centroids of complex polygons, making the script more efficient.
 
 ## Polygon Definition
 
