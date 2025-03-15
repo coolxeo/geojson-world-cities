@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import sys
+import math
 
 # Define European countries
 european_countries = {
@@ -79,6 +80,97 @@ def is_in_europe(lon, lat):
     except (TypeError, ValueError):
         return False
 
+def calculate_city_center(coords):
+    """Calculate the center point of a city from its coordinates."""
+    if not coords:
+        return None, None
+    
+    # Handle different geometry types
+    if isinstance(coords[0], list) and isinstance(coords[0][0], list):
+        # Polygon: use the first ring
+        points = coords[0]
+    elif isinstance(coords[0], list) and isinstance(coords[0][0], (int, float)):
+        # LineString
+        points = coords
+    elif isinstance(coords[0], (int, float)) and len(coords) == 2:
+        # Point
+        return coords[0], coords[1]
+    else:
+        return None, None
+    
+    # Calculate center
+    lon_sum = sum(p[0] for p in points)
+    lat_sum = sum(p[1] for p in points)
+    count = len(points)
+    
+    return lon_sum / count, lat_sum / count
+
+def simplify_city_polygon(coords, num_points=4):
+    """
+    Simplify a city polygon to a specified number of points.
+    
+    Args:
+        coords: The original coordinates of the city polygon
+        num_points: The desired number of points (4-6)
+        
+    Returns:
+        A simplified polygon with the specified number of points
+    """
+    # If it's already a point, return it
+    if isinstance(coords[0], (int, float)) and len(coords) == 2:
+        # Create a small square around the point
+        lon, lat = coords
+        offset = 0.01  # Approximately 1km at the equator
+        return [
+            [lon - offset, lat - offset],
+            [lon + offset, lat - offset],
+            [lon + offset, lat + offset],
+            [lon - offset, lat + offset]
+        ]
+    
+    # If it's a polygon, simplify it
+    if isinstance(coords[0], list):
+        if isinstance(coords[0][0], list):
+            # Multi-polygon, use the first ring
+            points = coords[0]
+        else:
+            # Single polygon
+            points = coords
+    else:
+        # Not a valid polygon
+        return None
+    
+    # Calculate center
+    center_lon, center_lat = calculate_city_center(coords)
+    if center_lon is None:
+        return None
+    
+    # Calculate the average distance from center to determine city size
+    distances = []
+    for p in points:
+        dx = p[0] - center_lon
+        dy = p[1] - center_lat
+        distances.append(math.sqrt(dx*dx + dy*dy))
+    
+    avg_distance = sum(distances) / len(distances)
+    
+    # Create a simplified polygon based on size
+    # For smaller cities, use 4 points; for larger ones, use 6
+    if avg_distance < 0.05:  # Small city
+        num_points = min(num_points, 4)
+    else:  # Larger city
+        num_points = min(num_points, 6)
+    
+    # Create a regular polygon around the center
+    simplified = []
+    for i in range(num_points):
+        angle = 2 * math.pi * i / num_points
+        x = center_lon + avg_distance * math.cos(angle)
+        y = center_lat + avg_distance * math.sin(angle)
+        simplified.append([x, y])
+    
+    return simplified
+
 def main():
     print("Loading cities.geojson file...")
     try:
@@ -97,6 +189,12 @@ def main():
                 
                 # Check if the city is in Europe by name
                 if city_name and city_name in european_city_names:
+                    # Simplify the geometry if it's a polygon
+                    if feature['geometry']['type'].lower() == 'polygon':
+                        simplified = simplify_city_polygon(feature['geometry']['coordinates'])
+                        if simplified:
+                            feature['geometry']['coordinates'] = [simplified]  # Wrap in array for polygon format
+                    
                     european_features.append(feature)
                     continue
                 
@@ -111,11 +209,17 @@ def main():
                         if is_in_europe(lon, lat):
                             european_features.append(feature)
                     
-                    # For Polygon geometries, just use the first coordinate as an approximation
-                    elif geom_type == 'polygon' and coords and coords[0]:
-                        # Just take the first point as a simple approximation
-                        lon, lat = coords[0][0]
-                        if is_in_europe(lon, lat):
+                    # For Polygon geometries
+                    elif geom_type == 'polygon' and coords:
+                        # Get the city center
+                        center_lon, center_lat = calculate_city_center(coords)
+                        
+                        if center_lon is not None and is_in_europe(center_lon, center_lat):
+                            # Simplify the polygon before adding
+                            simplified = simplify_city_polygon(coords)
+                            if simplified:
+                                feature['geometry']['coordinates'] = [simplified]  # Wrap in array for polygon format
+                            
                             european_features.append(feature)
             except Exception as e:
                 print(f"Error processing feature {i}: {e}")
