@@ -1,0 +1,991 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Western Europe",
+        "feature_type": "region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -5.5,
+              42.0
+            ],
+            [
+              7.5,
+              47.0
+            ],
+            [
+              13.0,
+              47.0
+            ],
+            [
+              15.0,
+              51.0
+            ],
+            [
+              8.0,
+              55.0
+            ],
+            [
+              3.5,
+              51.5
+            ],
+            [
+              -5.5,
+              48.5
+            ],
+            [
+              -5.5,
+              42.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Paris",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3522,
+          48.8566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Berlin",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.405,
+          52.52
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vienna",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3738,
+          48.2082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brussels",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3517,
+          50.8503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amsterdam",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.9041,
+          52.3676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bern",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4474,
+          46.948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Luxembourg City",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1319,
+          49.6116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Monaco",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4246,
+          43.7384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vaduz",
+        "feature_type": "capital",
+        "region": "Western Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.5209,
+          47.141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Northern Europe",
+        "feature_type": "region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -24.0,
+              63.0
+            ],
+            [
+              -10.0,
+              59.0
+            ],
+            [
+              -5.0,
+              59.0
+            ],
+            [
+              0.0,
+              52.0
+            ],
+            [
+              4.0,
+              53.0
+            ],
+            [
+              30.0,
+              60.0
+            ],
+            [
+              32.0,
+              70.0
+            ],
+            [
+              25.0,
+              71.0
+            ],
+            [
+              -20.0,
+              66.0
+            ],
+            [
+              -24.0,
+              63.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "London",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1278,
+          51.5074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dublin",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.2603,
+          53.3498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Reykjavik",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -21.9426,
+          64.1466
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Oslo",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7522,
+          59.9139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stockholm",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.0686,
+          59.3293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Helsinki",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9384,
+          60.1699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Copenhagen",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5683,
+          55.6761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tallinn",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.7536,
+          59.437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Riga",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.1052,
+          56.9496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vilnius",
+        "feature_type": "capital",
+        "region": "Northern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.2797,
+          54.6872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Southern Europe",
+        "feature_type": "region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -10.0,
+              36.0
+            ],
+            [
+              3.0,
+              36.0
+            ],
+            [
+              19.0,
+              35.0
+            ],
+            [
+              35.0,
+              35.0
+            ],
+            [
+              29.0,
+              42.0
+            ],
+            [
+              19.0,
+              45.5
+            ],
+            [
+              13.0,
+              46.0
+            ],
+            [
+              8.0,
+              46.0
+            ],
+            [
+              -3.0,
+              44.0
+            ],
+            [
+              -10.0,
+              44.0
+            ],
+            [
+              -10.0,
+              36.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Madrid",
+        "feature_type": "capital",
+        "region": "Southern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7038,
+          40.4168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lisbon",
+        "feature_type": "capital",
+        "region": "Southern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.1393,
+          38.7223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rome",
+        "feature_type": "capital",
+        "region": "Southern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4964,
+          41.9028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vatican City",
+        "feature_type": "capital",
+        "region": "Southern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4534,
+          41.9029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "San Marino",
+        "feature_type": "capital",
+        "region": "Southern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4578,
+          43.9424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Valletta",
+        "feature_type": "capital",
+        "region": "Southern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5074,
+          35.8997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Athens",
+        "feature_type": "capital",
+        "region": "Southern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7275,
+          37.9838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nicosia",
+        "feature_type": "capital",
+        "region": "Southern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.3823,
+          35.1856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eastern Europe",
+        "feature_type": "region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0,
+              49.0
+            ],
+            [
+              17.0,
+              48.0
+            ],
+            [
+              22.0,
+              44.0
+            ],
+            [
+              29.0,
+              44.0
+            ],
+            [
+              30.0,
+              49.0
+            ],
+            [
+              24.0,
+              54.0
+            ],
+            [
+              14.0,
+              54.5
+            ],
+            [
+              12.0,
+              49.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Warsaw",
+        "feature_type": "capital",
+        "region": "Eastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.0122,
+          52.2297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Prague",
+        "feature_type": "capital",
+        "region": "Eastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4378,
+          50.0755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bratislava",
+        "feature_type": "capital",
+        "region": "Eastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.1077,
+          48.1486
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Budapest",
+        "feature_type": "capital",
+        "region": "Eastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0402,
+          47.4979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bucharest",
+        "feature_type": "capital",
+        "region": "Eastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1025,
+          44.4268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sofia",
+        "feature_type": "capital",
+        "region": "Eastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3219,
+          42.6977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Southeastern Europe",
+        "feature_type": "region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.5,
+              46.0
+            ],
+            [
+              13.5,
+              45.0
+            ],
+            [
+              19.0,
+              41.0
+            ],
+            [
+              23.0,
+              41.0
+            ],
+            [
+              23.0,
+              44.0
+            ],
+            [
+              19.0,
+              46.0
+            ],
+            [
+              16.0,
+              46.5
+            ],
+            [
+              13.5,
+              46.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ljubljana",
+        "feature_type": "capital",
+        "region": "Southeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5058,
+          46.0569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zagreb",
+        "feature_type": "capital",
+        "region": "Southeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.9819,
+          45.815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sarajevo",
+        "feature_type": "capital",
+        "region": "Southeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4131,
+          43.8563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Belgrade",
+        "feature_type": "capital",
+        "region": "Southeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.4612,
+          44.8125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Podgorica",
+        "feature_type": "capital",
+        "region": "Southeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.2636,
+          42.4304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Skopje",
+        "feature_type": "capital",
+        "region": "Southeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.4254,
+          42.0024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tirana",
+        "feature_type": "capital",
+        "region": "Southeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.8187,
+          41.3275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pristina",
+        "feature_type": "capital",
+        "region": "Southeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.1622,
+          42.6629
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Northeastern Europe",
+        "feature_type": "region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              23.0,
+              51.0
+            ],
+            [
+              23.0,
+              45.0
+            ],
+            [
+              30.0,
+              44.0
+            ],
+            [
+              45.0,
+              48.0
+            ],
+            [
+              40.0,
+              60.0
+            ],
+            [
+              30.0,
+              60.0
+            ],
+            [
+              23.0,
+              56.0
+            ],
+            [
+              23.0,
+              51.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Minsk",
+        "feature_type": "capital",
+        "region": "Northeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5615,
+          53.9045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kiev",
+        "feature_type": "capital",
+        "region": "Northeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.5234,
+          50.4501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chisinau",
+        "feature_type": "capital",
+        "region": "Northeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.8575,
+          47.0105
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Moscow",
+        "feature_type": "capital",
+        "region": "Northeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6173,
+          55.7558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St. Petersburg",
+        "feature_type": "capital",
+        "region": "Northeastern Europe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3351,
+          59.9343
+        ]
+      }
+    }
+  ]
+}
